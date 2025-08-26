@@ -19,9 +19,9 @@ SubXT is a Rust client for Polkadot SDK-based chains that generates a type-safe 
     subxt metadata -f bytes --url <WS> -o metadata.scale
     ```
 
-> Install the [`subxt-cli`](https://crates.io/crates/subxt-cli) will greatly aid in fetching metadata from nodes - `cargo install subxt-cli`
+> Installing the [`subxt-cli`](https://crates.io/crates/subxt-cli) will greatly aid in fetching metadata from nodes - `cargo install subxt-cli`
 
-1. Generate types dynamically using the macro: 
+2. Generate types dynamically using the macro: 
    
    ```rust
    use #[subxt::subxt(runtime_metadata_path = "metadata.scale")]
@@ -32,13 +32,12 @@ SubXT is a Rust client for Polkadot SDK-based chains that generates a type-safe 
     ```sh
     subxt codegen --url <WS> > src/chain.rs
     ```
-
-2. Init client:
+3. Init client:
    ```rust
    let api = OnlineClient::<PolkadotConfig>::from_url(<WS>).await?;
    ```
 
-3. Prepare a signer (you will need `subxt-signer`):
+4. Prepare a signer (you will need `subxt-signer`):
    ```rust
     let uri = SecretUri::from_str(mnemonic_str).expect("valid mnemonic");
     let signer = Keypair::from_uri(&uri).expect("valid keypair")
@@ -52,17 +51,18 @@ From here, you can query storage, send transactions, and watch events with ease.
 - `remark.rs`: Utility functions for interacting with the blockchain.
 - `config.rs`: Configuration and type definitions, including loading the types from the metadata located in `artifacts/`
 
-## How to run
+## Installation & Running
 
-1. **Install Rust**:  
-   If you don't have Rust, install it from [rustup.rs](https://rustup.rs/).
+1. Ensure you have [Rust](https://rustup.rs/) installed.
 
 2. **Clone this repository** and enter the directory.
 
-3. **Download the metadata**:  
-   The metadata for the Paseo testnet (`artifacts/paseo.scale`) is already included, however to generate more metadata, you will need the `subxt` CLI.
+3. **Ensure you have the correct metadata**:  
+   
+   The metadata for the Paseo testnet (`artifacts/paseo.scale`) is already included, however if you wish to use a different network, you will need to use the [`subxt-cli`](https://crates.io/crates/subxt-cli).
 
 4. **Build and run**:
+   
    ```sh
    cargo run
    ```
