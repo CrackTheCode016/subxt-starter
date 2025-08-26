@@ -84,9 +84,17 @@ Remark success: Some(Remarked { ... })
 - To use a different account, change the address or mnemonic in the code.
 - To send a different message, change the string passed to the `remark` function.
 
+## Moving Forward: Adding a UI
+
+Because of `subxt`'s native support for Wasm, there are a number of Rust-based UI/web frameworks you can use:
+
+- [Yew](https://yew.rs/) - A framework for creating reliable and efficient web applications.
+- [Iced](https://iced.rs/) - A cross-platform GUI library for Rust focused on simplicity and type-safety.
+
 ## More Information
 
 - [Subxt documentation](https://docs.rs/subxt/latest/subxt/book/index.html)
+- [Subxt Examples](https://github.com/paritytech/subxt/tree/master/examples)
 - [Polkadot SDK documentation](https://docs.polkadot.com/develop/toolkit/api-libraries/subxt/)
 
 ---
