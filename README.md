@@ -1,6 +1,6 @@
 # Subxt Starter Example
 
-This project demonstrates how to interact with a Substrate-based blockchain (like Paseo) using Rust and the [`subxt`](https://github.com/paritytech/subxt) library.
+This project demonstrates how to interact with a Polkadot SDK-based blockchain (like Paseo) using Rust and the [`subxt`](https://github.com/paritytech/subxt) library.
 
 ## What does this code do?
 
@@ -87,7 +87,7 @@ Remark success: Some(Remarked { ... })
 ## More Information
 
 - [Subxt documentation](https://docs.rs/subxt/latest/subxt/book/index.html)
-- [Substrate documentation](https://docs.polkadot.com/develop/toolkit/api-libraries/subxt/)
+- [Polkadot SDK documentation](https://docs.polkadot.com/develop/toolkit/api-libraries/subxt/)
 
 ---
 *This project is for educational purposes and works with public test networks like Paseo.*
