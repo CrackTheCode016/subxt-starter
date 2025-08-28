@@ -11,15 +11,14 @@ async fn main() -> SubXtResult<()> {
 
     // Fetch account info for Alice
     let alice = dev::alice();
-    let address = alice.public_key().to_account_id();
-    let info = fetch_account_info(address).await?;
+    let address = alice.public_key();
+    let info = fetch_account_info(address.into()).await?;
     println!("Account info for ALICE: {:?}", info);
 
     // Create a signer from a mnemonic (this is just Alice; replace with your own account's phrase!)
     let mnemonic = "bottom drive obey lake curtain smoke basket hold race lonely fit walk";
     let signer = create_signer(mnemonic)?;
-    println!("Signer SS58: {:?}", signer.public_key().to_account_id().to_string());
-
+    println!("Signer created, waiting for events...");
     // Send a remark and watch for the event
     let events = remark(&alice, "Hello from remark.rs!").await?;
     // Note: this just finds the first "remark_with_event" extrinsic

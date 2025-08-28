@@ -28,8 +28,8 @@ pub async fn fetch_account_info(
 
 /// Create a signer (keypair) out of a mnemonic string.
 pub fn create_signer(mnemonic: &str) -> SubXtResult<Keypair> {
-    let uri = SecretUri::from_str(mnemonic).map_err(|e| format!("Invalid mnemonic: {}", e))?;
-    Keypair::from_uri(&uri).map_err(|e| format!("Invalid keypair: {}", e))
+    let uri = SecretUri::from_str(mnemonic)?;
+    Ok(Keypair::from_uri(&uri)?)
 }
 
 /// Sends a remark on-chain (a simple message) on behalf of the sender. Emits an event, which can be watched.
@@ -37,6 +37,7 @@ pub async fn remark(
     sender: &Keypair,
     message: &str
 ) -> SubXtResult<ExtrinsicEvents<PolkadotConfig>> {
+
     let api = OnlineClient::<PolkadotConfig>::from_url(RPC_URL).await?;
     let remark_call = paseo::tx().system().remark_with_event(message.into());
     Ok(

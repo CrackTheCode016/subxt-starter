@@ -1,4 +1,4 @@
-pub const RPC_URL: &str = "wss://pas-rpc.stakeworld.io";
+pub const RPC_URL: &str = "wss://paseo.rpc.amforc.com";
 pub type SubXtResult<T> = Result<T, Box<dyn std::error::Error>>;
 
 // Generate an interface that we can use from the node's metadata.
