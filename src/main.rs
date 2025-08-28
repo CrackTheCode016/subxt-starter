@@ -16,11 +16,12 @@ async fn main() -> SubXtResult<()> {
     println!("Account info for ALICE: {:?}", info);
 
     // Create a signer from a mnemonic (this is just Alice; replace with your own account's phrase!)
-    let mnemonic = "bottom drive obey lake curtain smoke basket hold race lonely fit walk";
+    // !!! DANGER !!! Never put private keys or mnemonics in your code! This is only for demonstration purposes.
+    let mnemonic = "bottom drive obey lake curtain smoke basket hold race lonely fit walk//Alice";
     let signer = create_signer(mnemonic)?;
     println!("Signer created, waiting for events...");
     // Send a remark and watch for the event
-    let events = remark(&alice, "Hello from remark.rs!").await?;
+    let events = remark(&signer, "Hello from remark.rs!").await?;
     // Note: this just finds the first "remark_with_event" extrinsic
     let remark_event = events.find_first::<paseo::system::events::Remarked>()?;
     if let Some(event) = remark_event {
